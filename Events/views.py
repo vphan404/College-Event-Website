@@ -7,13 +7,13 @@ dummyPosts = [
   {
     'author': 'Bobby Jackson',
     'title': 'Blog Post 1',
-    'content': 'First post content goes here.'
+    'content': 'First post content goes here.',
     'date_posted': 'October 30, 2019'
   },
   {
     'author': 'James Sullivan III',
     'title': 'Blog Post 2',
-    'content': "Second post content goes here. It's a pretty spoopy day today"
+    'content': "Second post content goes here. It's a pretty spoopy day today",
     'date_posted': 'October 31, 2019'
   },
 ]
