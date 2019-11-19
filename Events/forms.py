@@ -10,5 +10,5 @@ class CreateEventForm(forms.ModelForm):
     fields = [
       'eventName',
       'eventDescription',
-      'eventDateTime'
+      'eventDatetime'
     ]

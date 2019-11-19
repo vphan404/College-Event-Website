@@ -46,7 +46,7 @@ class Event(models.Model):
   # isRSO
   # University
 
-  user = models.ForeignKey(User, on_delete=models.CASCADE, defualt=defaultUser, null=True, blank=True)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, default=defaultUser, null=True, blank=True)
 
 
   # This method returns a astring that represents this fclass.

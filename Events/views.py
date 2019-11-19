@@ -12,9 +12,9 @@ from django.views.generic import (
 from .models import (
   Event
 )
-# from .forms import (
-#   CreateEventForm
-# )
+from .forms import (
+  CreateEventForm
+)
 
 # Create your views here.
 
@@ -34,15 +34,44 @@ dummyPosts = [
   },
 ]
 
+
+dummyEvents = [
+  {
+    'eventName': 'My First Event',
+    'eventDescription': 'Some description goes here, can be arbitrarily long',
+    'eventDatetime': 'October 30, 2019'
+  }, 
+  {
+    'eventName': 'Second Event',
+    'eventDescription': 'Some other description goes here.',
+    'eventDatetime': 'October 31, 2019'
+  }
+]
+
 # Homepage
 def home(request):
 
   context = {
     'posts': dummyPosts
-    'events': Event.objects.all()
+    # 'events': Event.objects.all()
   }
 
   return render(request, 'events/home.html', context)
+
+# Page that displays all the events
+class EventListView(ListView):
+  model = Event
+
+  # Template = the html template 
+  template_name = 'events/home.html'  # Default = <app>/<model>_<viewtype>.html
+  
+  
+  context_object_name = 'events'
+
+
+  ordering = ['-eventDateTime']
+
+
 
 # About page.
 def about(request):
