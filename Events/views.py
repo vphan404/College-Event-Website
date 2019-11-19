@@ -1,7 +1,20 @@
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import (
+  ListView,
+  DetailView,
+  CreateView,
+  UpdateView,
+  DeleteView
+)
+
 from .models import (
   Event
 )
+# from .forms import (
+#   CreateEventForm
+# )
 
 # Create your views here.
 
@@ -21,6 +34,7 @@ dummyPosts = [
   },
 ]
 
+# Homepage
 def home(request):
 
   context = {

@@ -39,6 +39,7 @@ class Event(models.Model):
   eventDescription = models.TextField()
   eventDate = models.DateField()
   eventDatetime = models.DateTimeField()
+  eventTime = models.TimeField()
 
   user = models.ForeignKey(User, on_delete=models.CASCADE, defualt=defaultUser, null=True, blank=True)
 
