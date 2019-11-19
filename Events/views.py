@@ -44,6 +44,6 @@ def home(request):
 
   return render(request, 'events/home.html', context)
 
-
+# About page.
 def about(request):
   return render(request, 'events/about.html')

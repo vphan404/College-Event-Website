@@ -40,6 +40,11 @@ class Event(models.Model):
   eventDate = models.DateField()
   eventDatetime = models.DateTimeField()
   eventTime = models.TimeField()
+  # eventLocation = ???
+  # isPublic // or make wrapper class?
+  # isPrivate
+  # isRSO
+  # University
 
   user = models.ForeignKey(User, on_delete=models.CASCADE, defualt=defaultUser, null=True, blank=True)
 
