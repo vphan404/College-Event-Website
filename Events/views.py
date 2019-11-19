@@ -63,13 +63,17 @@ class EventListView(ListView):
   model = Event
 
   # Template = the html template 
-  template_name = 'events/home.html'  # Default = <app>/<model>_<viewtype>.html
+  template_name = 'events/event_list.html'  # Default = <app>/<model>_<viewtype>.html
   
-  
+  # This is the info passed into the html
   context_object_name = 'events'
 
+  # Orders in descending order by date (make the newest)
+  ordering = ['-eventDatetime']
 
-  ordering = ['-eventDateTime']
+# Page that displays the details for a given event
+class EventDetailView(DetailView):
+  
 
 
 
