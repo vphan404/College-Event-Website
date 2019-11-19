@@ -52,7 +52,7 @@ class Event(models.Model):
   # This method returns a astring that represents this fclass.
   # similar to toString() in java
   def __str__(self):
-    return self.eventName
+    return self.name
   
   # Should associate a user with the event when initialized
   def save_model(self, request, obj, form, change):
