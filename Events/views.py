@@ -58,6 +58,7 @@ def home(request):
 
   return render(request, 'events/home.html', context)
 
+
 # Page that displays all the events
 class EventListView(ListView):
   model = Event
@@ -71,6 +72,7 @@ class EventListView(ListView):
   # Orders in descending order by date (make the newest)
   ordering = ['-datetime']
 
+
 # Page that displays the details for a given event
 class EventDetailView(DetailView):
   model = Event 
@@ -83,6 +85,10 @@ class EventDetailView(DetailView):
 
     return context
 
+
+# Page for creating an event
+class EventCreateView(CreateView):
+  model = Event
 
 
 # About page.

@@ -45,6 +45,7 @@ class Event(models.Model):
   # isPrivate
   # isRSO
   # University
+  # begin time, end time?
 
   user = models.ForeignKey(User, on_delete=models.CASCADE, default=defaultUser, null=True, blank=True)
 
