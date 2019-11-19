@@ -35,18 +35,18 @@ dummyPosts = [
 ]
 
 
-dummyEvents = [
-  {
-    'eventName': 'My First Event',
-    'eventDescription': 'Some description goes here, can be arbitrarily long',
-    'eventDatetime': 'October 30, 2019'
-  }, 
-  {
-    'eventName': 'Second Event',
-    'eventDescription': 'Some other description goes here.',
-    'eventDatetime': 'October 31, 2019'
-  }
-]
+# dummyEvents = [
+#   {
+#     'eventName': 'My First Event',
+#     'eventDescription': 'Some description goes here, can be arbitrarily long',
+#     'eventDatetime': 'October 30, 2019'
+#   }, 
+#   {
+#     'eventName': 'Second Event',
+#     'eventDescription': 'Some other description goes here.',
+#     'eventDatetime': 'October 31, 2019'
+#   }
+# ]
 
 # Homepage
 def home(request):
@@ -69,11 +69,19 @@ class EventListView(ListView):
   context_object_name = 'events'
 
   # Orders in descending order by date (make the newest)
-  ordering = ['-eventDatetime']
+  ordering = ['-datetime']
 
 # Page that displays the details for a given event
 class EventDetailView(DetailView):
-  
+  model = Event 
+
+  template_name = 'events/event_detail.html'
+
+  def get_context_data(self, **kwargs):
+    # Call the base implementation first to get a context
+    context = super().get_context_data(**kwargs)
+
+    return context
 
 
 

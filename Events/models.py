@@ -34,12 +34,12 @@ def defaultEvent():
 
 
 class Event(models.Model):
-  eventId = models.AutoField(primary_key=True) 
-  eventName = models.CharField(max_length = MAX_LENGTH_EVENT_NAME)
-  eventDescription = models.TextField()
-  eventDate = models.DateField()
-  eventDatetime = models.DateTimeField()
-  eventTime = models.TimeField()
+  id = models.AutoField(primary_key=True) 
+  name = models.CharField(max_length = MAX_LENGTH_EVENT_NAME)
+  description = models.TextField()
+  # eventDate = models.DateField()
+  datetime = models.DateTimeField()
+  # eventTime = models.TimeField()
   # eventLocation = ???
   # isPublic // or make wrapper class?
   # isPrivate

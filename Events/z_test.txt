@@ -1,0 +1,14 @@
+# Some possible commands to copy/paste into cmd to make some data
+# Don't run just yet
+
+
+python manage.py   // open python
+
+from datetime import datetime, date, time
+
+user = User.objects.filter(username='admin').first()
+d = date(2019, 10, 30)
+t = time(12, 30)
+dt = datetime.combine(d, t)
+event_1 = Event(eventName='My First Event', eventDescription='Some description goes here', eventDatetime=dt)
+
