@@ -29,9 +29,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'events-home' %}">Events</a>
+              <div class="dropdown show">
+                <a class="nav-item nav-link dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-pressed="true" aria-haspopup="true" aria-expanded="false">
+                  Events
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'events-home'%}">Events List</a>
+                  <a class="dropdown-item" href="{% url 'event-create'%}">Create an Event</a>
+                </div>
+              </div>
+
               <a class="nav-item nav-link" href="{% url 'rso-home' %}">Registered Student Organizations</a> 
             </div>
+
 
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
