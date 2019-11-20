@@ -1,13 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from django.contrib.auth.forms import (
-  UserCreationForm
-)
 from django.views.generic import (
   CreateView
 )
 from django.contrib import messages
-# from django.contrib.auth.forms import User 
 from .forms import (
   UserSignUpForm,
   AdminSignUpForm,
@@ -40,12 +36,14 @@ class UserSignUpView(CreateView):
   
   def get_context_data(self, **kwargs):
     kwargs['user_type'] = 'user'
-    return super().get_context_data(**kwargs) 
+    context = super().get_context_data(**kwargs) 
+    return context
 
   def form_valid(self, form):
     user = form.save()
     login(self.request, user) 
     return redirect('events:events-home')
+
 
 class AdminSignUpView(CreateView):
   model = User 
@@ -61,6 +59,7 @@ class AdminSignUpView(CreateView):
     login(self.request, user) 
     return redirect('events:events-home')
 
+
 class SuperAdminSignUpView(CreateView):
   model = User 
   form_class = SuperAdminSignUpForm 
@@ -74,3 +73,4 @@ class SuperAdminSignUpView(CreateView):
     user = form.save()
     login(self.request, user) 
     return redirect('events:events-home')
+

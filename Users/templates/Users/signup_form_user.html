@@ -1,4 +1,6 @@
-{% extends "home/base.html" %}
+{% extends "Home/base.html" %}
+
+
 {% load crispy_forms_tags %}
 {% if messages %}
     {% for message in messages %}
@@ -7,7 +9,8 @@
         </div>
     {% endfor %}
 {% endif %}
-{% block main %}
+{% block content %}
+
 
 <main role="main" class="container">
 	<div class="row">
@@ -32,4 +35,4 @@
     </div>
   </div>
 </main>
-{% endblock main %}
+{% endblock content %}

@@ -13,7 +13,7 @@ urlpatterns = [
   path('admin/',
     AdminSignUpView.as_view(), name='admin-registration'),
 
-  path('event/<int:pk>/',
+  path('superadmin',
     SuperAdminSignUpView.as_view(), name='super-admin-registration'),
 ]
 
