@@ -7,7 +7,7 @@ from .models import (
 
 # What should be listed on a create event form
 class CreateEventForm(forms.ModelForm):
-  address = AddressField()
+  # address = AddressField()
   class Meta:
     model = Event 
     fields = [
@@ -16,7 +16,8 @@ class CreateEventForm(forms.ModelForm):
       'date',
       'startTime',
       'endTime',
-      'address'
+      # 'address'
+      'location'
     ]
     widgets = {
       'date': forms.SelectDateWidget(),

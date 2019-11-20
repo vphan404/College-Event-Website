@@ -6,7 +6,7 @@ from datetime import datetime, date, time
 # from django.contrib.gis.db import models
 # from django.contrib.gis.geos import Point
 # from location_field.models.spatial import LocationField # For the location widget
-# from location_field.models.plain import PlainLocationField
+from location_field.models.plain import PlainLocationField
 
 from address.models import AddressField, Address
 
@@ -43,9 +43,9 @@ def defaultEvent():
   # Returns the primary key, not the event itself
   return default.eventId
 
-# def defaultLocation():
-#   default = '28.6024, -81.2001' # UCF
-#   return default
+def defaultLocation():
+  default = '28.6024, -81.2001' # UCF
+  return default
 
 def defaultAddress():
   rawText = '4000 Central Florida Blvd, Orlando, FL 32816'
@@ -78,8 +78,8 @@ class Event(models.Model):
   date = models.DateField(default=DEFAULT_DATE)
   startTime = models.TimeField(default=DEFAULT_START_TIME)
   endTime = models.TimeField(default=DEFAULT_END_TIME)
-  # location = PlainLocationField(based_fields=['city'], zoom=7, default=defaultLocation())
-  address = AddressField(null=True, on_delete=models.CASCADE)
+  location = PlainLocationField(based_fields=['city'], zoom=7, default=defaultLocation())
+  # address = AddressField(null=True, on_delete=models.CASCADE)
   # isPublic // or make wrapper class?
   # isPrivate
   # isRSO
