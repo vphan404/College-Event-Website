@@ -17,6 +17,7 @@ from .models import (
   User,
   UniversityList
 )
+from Universities import University
 
 # Create your views here.
 # def register(request):
@@ -111,6 +112,19 @@ class SuperAdminSignUpView(CreateView):
     user = form.save()
     login(self.request, user) 
     return redirect('events-home')
+
+def universities(request):
+  universities = Universities.objects.all() 
+  myListObj, created = Universities.objects.get_or_create(owner=request.user)
+  myUniversityList = myListObj.universities.all()
+
+  context = {
+    'title': 'University List',
+    'universities': universities, 
+    'myUniversityList': myUniversityList 
+  }
+
+  return render(request, 'Users/friends.html', context) 
 
 
 def update_universities(request, operation, pk):
