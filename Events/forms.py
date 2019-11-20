@@ -17,7 +17,9 @@ class CreateEventForm(forms.ModelForm):
       'startTime',
       'endTime',
       # 'address'
-      'location'
+      'location',
+      'isPrivate',
+      'isRSO'
     ]
     widgets = {
       'date': forms.SelectDateWidget(),

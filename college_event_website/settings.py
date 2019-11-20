@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'location_field.apps.DefaultConfig',
     'address',
+    'django.contrib.comments',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

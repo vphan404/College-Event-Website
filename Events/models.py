@@ -11,6 +11,7 @@ from location_field.models.plain import PlainLocationField
 from address.models import AddressField, Address
 
 from Users.models import User
+from Universities.models import University, defaultUniversity
 
 MAX_LENGTH_EVENT_NAME = 255
 DEFAULT_DATE = date(2000, 1, 1)
@@ -70,6 +71,11 @@ def defaultAddress():
   # default = '4000 Central Florida Blvd, Orlando, FL 32816'
   return default
 
+# def defaultUniversity():
+#   default = University.objects.first() 
+#   if default = None:
+#   return default
+
 
 class Event(models.Model):
   id = models.AutoField(primary_key=True) 
@@ -79,10 +85,11 @@ class Event(models.Model):
   startTime = models.TimeField(default=DEFAULT_START_TIME)
   endTime = models.TimeField(default=DEFAULT_END_TIME)
   location = PlainLocationField(based_fields=['city'], zoom=7, default=defaultLocation())
+  isApproved = models.BooleanField(default=False)
+  isPrivate = models.BooleanField(default=False) 
+  isRSO = models.BooleanField(default=False)
+  # university = models.ForeignKey(University, default=defaultUniversity(), on_delete=models.CASCADE)
   # address = AddressField(null=True, on_delete=models.CASCADE)
-  # isPublic // or make wrapper class?
-  # isPrivate
-  # isRSO
   # University
   # begin time, end time?
 
