@@ -9,7 +9,9 @@ from django.contrib import messages
 from .forms import (
   UserSignUpForm,
   AdminSignUpForm,
-  SuperAdminSignUpForm
+  SuperAdminSignUpForm,
+  UserUpdateForm,
+  ProfileUpdateForm
 )
 from .models import (
   User

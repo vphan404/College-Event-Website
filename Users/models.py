@@ -11,13 +11,25 @@ def defaultUser():
 
     return default
 
+
+# def defaultProfile():
+#   default = Profile.objects.first()
+
+#   if default is None:
+#     default = Profile.objects.create_profile()
+  
+#   return default
+
+
 class User(AbstractUser):
   is_admin = models.BooleanField(default=False) 
   is_super_admin = models.BooleanField(default=False) 
+  # profile = models.OneToOneField(Profile, on_delete=models.CASCADE, default=defaultProfile())
+
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
-  image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+  image = models.ImageField(default='default.png', upload_to='profile_pics')
 
   def __str__(self):
     return f'{self.user.username} Profile'
@@ -31,3 +43,6 @@ class Profile(models.Model):
       output_size = (300, 300) 
       image.thumbnail(output_size)
       image.save(self.image.path)
+
+
+

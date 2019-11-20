@@ -40,3 +40,10 @@ event_2 = Event(
   user=user
 )
 event_2.save()
+
+
+
+
+from Users.models import User, Profile
+user = User.objects.filter(username='testuser')
+profile = Profile.objects.filter(user=user)
