@@ -40,7 +40,15 @@
                 </div>
               </div>
 
-              <a class="nav-item nav-link" href="{% url 'rso-home' %}">Registered Student Organizations</a> 
+              <div class="dropdown">
+                  <a class="nav-item nav-link dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-pressed="true" aria-haspopup="true" aria-expanded="false">
+                  Registered Student Organization
+                  </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'rso-home' %}">Registered Student Organizations List</a>
+                  <a class="dropdown-item" href="{% url 'rso-create'%}">Create an Rso</a>
+                </div>
+              </div>
             </div>
 
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
@@ -12,25 +12,13 @@ from django.views.generic import (
 from .models import (
   Rso
 )
-# from .forms import (
-#   CreateRsoForm
-# )
+from .forms import (
+  CreateRsoForm
+)
 
 # Create your views here.
 
-
-# Homepage
-# def home(request):
-
-#   context = {
-#     'posts': dummyPosts
-#     # 'events': Event.objects.all()
-#   }
-
-#   return render(request, 'events/home.html', context)
-
-
-# Page that displays all the events
+# Page that displays all the rso
 class RsoListView(ListView):
   model = Rso
 
@@ -44,35 +32,26 @@ class RsoListView(ListView):
   # ordering = ['-date']
 
 
-# # Page that displays the details for a given event
-# class EventDetailView(DetailView):
-#   model = Event 
+# Page that displays the details for a given event
+class RsoDetailView(DetailView):
+  model = Rso 
 
-#   template_name = 'events/event_detail.html'
+  template_name = 'rso/rso_detail.html'
 
-#   def get_context_data(self, **kwargs):
-#     # Call the base implementation first to get a context
-#     context = super().get_context_data(**kwargs)
+  def get_context_data(self, **kwargs):
+    # Call the base implementation first to get a context
+    context = super().get_context_data(**kwargs)
 
-#     return context
+    return context
 
-
-# # Page for creating an event
-# # class EventCreateView(CreateView):
-# #   model = Event
-# #   fields = [
-# #     'name', 
-# #     'description',
-# #     'datetime'
-# #   ]
-
-# def EventCreateView(request):
-#   model = Event
-#   form = CreateEventForm(request.POST or None, request.FILES or None)
-#   if request.method == 'POST' and form.is_valid():
-#     form.save() 
-#   context = {
-#     'form': form,
-#     'page_title': 'Edit Event',
-#   }
-#   return render(request, 'events/event_form.html', context)
+def RsoCreateView(request):
+  model = Rso
+  form = CreateRsoForm(request.POST or None, request.FILES or None)
+  if request.method == 'POST' and form.is_valid():
+    form.save()
+    return redirect('rso-home')
+  context = {
+    'form': form,
+    'page_title': 'Edit Rso',
+  }
+  return render(request, 'rso/rso_form.html', context)

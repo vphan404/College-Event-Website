@@ -1,7 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User 
-from django.urls import reverse 
-from datetime import datetime, date, time
+from django.urls import reverse
 from Users.models import User
 
 MAX_LENGTH_RSO_NAME = 255
@@ -23,13 +21,11 @@ def defaultRso():
   # Returns the primary key, not the event itself
   return default.rsoId
 
-
 class Rso(models.Model):
   id = models.AutoField(primary_key=True) 
   name = models.CharField(max_length = MAX_LENGTH_RSO_NAME)
   description = models.TextField()
-  user = models.ForeignKey(User, on_delete=models.CASCADE, default=defaultUser, null=True, blank=True)
-
+  members = models.ManyToManyField(User, blank=False)
 
   # This method returns a astring that represents this fclass.
   # similar to toString() in java
@@ -45,5 +41,5 @@ class Rso(models.Model):
   # When you create/update an event, this is where the
   # page goes to after you save the event
   def get_absolute_url(self):
-    return reverse('event-detail', kwargs={'pk:': self.pk})
+    return reverse('rso-detail', kwargs={'pk:': self.pk})
 

@@ -1,11 +1,13 @@
 from django import forms
 from django.forms import TimeInput, DateInput
+from address.forms import AddressField
 from .models import (
   Event
 )
 
 # What should be listed on a create event form
 class CreateEventForm(forms.ModelForm):
+  # address = AddressField()
   class Meta:
     model = Event 
     fields = [
@@ -14,6 +16,7 @@ class CreateEventForm(forms.ModelForm):
       'date',
       'startTime',
       'endTime',
+      # 'address'
       'location'
     ]
     widgets = {

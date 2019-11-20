@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Rso.apps.RsoConfig',
     'crispy_forms',
     'location_field.apps.DefaultConfig',
+    'address',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,3 +136,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'events-home'
 LOGIN_URL = 'login'
+
+GOOGLE_API_KEY = 'AIzaSyA82MqApoNjgpFV7R2FqvD_MSZ-40aYGK8'

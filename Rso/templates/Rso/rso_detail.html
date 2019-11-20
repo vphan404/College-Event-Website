@@ -4,11 +4,15 @@
 
   <article class="media content-section">
     <div class="media-body">
-      <div class="article-metadata">
-        <small class="text-muted">{{ object.date }}</small>
-      </div>
       <h2 class="article-title">{{ object.name }}</h2>
-      <p class="article-content">{{ object.description }}</p>
+      <h4>Description:</h4>
+        <p class="article-content">{{ object.description }}</p>
+      <h4>Members:</h4>
+      <ul>
+        {% for member in object.members.all %}
+        <li class="article-content">{{ member }}</li>
+        {% endfor %}
+      </ul>
     </div>
   </article>
 
