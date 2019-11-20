@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.views.generic import (
   CreateView,
   TemplateView
@@ -29,6 +30,12 @@ from .models import (
 #       'form': form,
 #     }
 #     return render(request, 'Users/register.html', context)
+
+
+@login_required
+def profile(request):
+  return render(request, 'Users/profile.html')
+
 
 class ChooseSignUpView(TemplateView):
   template_name = 'users/choose_signup.html'
