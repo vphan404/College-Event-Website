@@ -7,7 +7,7 @@ python manage.py shell  // open python
 //from django.contrib.auth.models import User 
 
 from datetime import datetime, date, time
-from User.models import User
+from Users.models import User
 from Events.models import Event
 
 user = User.objects.filter(username='admin').first()
@@ -23,7 +23,7 @@ event_1 = Event(
   endTime = t2,
   user=user
 )
-//event_1.save()
+event_1.save()
 Event.objects.all()
 
 user = User.objects.filter(username='admin').first()
