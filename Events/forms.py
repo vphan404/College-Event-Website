@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import TimeInput, DateInput
 from .models import (
   Event
 )
@@ -10,10 +11,16 @@ class CreateEventForm(forms.ModelForm):
     fields = [
       'name',
       'description',
-      'datetime'
+      'date',
+      'startTime',
+      'endTime'
     ]
-    datetime = forms.DateField(
-      widget=forms.TextInput(
-        attrs={'type':'date'}
-      )
+    widgets = {
+      'date': forms.SelectDateWidget(),
+      'startTime': forms.TimeInput(),
+      'endTime': forms.TimeInput()
+    }
+    # name = forms.CharField(max_length=)
+    date = forms.DateField(
+      widget=forms.SelectDateWidget(years=[2001, 2002])
     )
