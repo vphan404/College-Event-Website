@@ -36,3 +36,4 @@ Home/__pycache__/urls.cpython-37.pyc
 Home/__pycache__/__init__.cpython-37.pyc
 Events/__pycache__/urls.cpython-37.pyc
 college_event_website/__pycache__/urls.cpython-37.pyc
+*.pyc
