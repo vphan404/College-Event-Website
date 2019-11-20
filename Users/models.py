@@ -67,4 +67,3 @@ class UniversityList(models.Model):
       owner = owner
     )
     universityList.universities.remove(new_university)
-

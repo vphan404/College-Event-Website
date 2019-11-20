@@ -71,10 +71,6 @@ def defaultAddress():
   # default = '4000 Central Florida Blvd, Orlando, FL 32816'
   return default
 
-# def defaultUniversity():
-#   default = University.objects.first() 
-#   if default = None:
-#   return default
 
 
 class Event(models.Model):
@@ -112,3 +108,9 @@ class Event(models.Model):
   def get_absolute_url(self):
     return reverse('event-detail', kwargs={'pk:': self.pk})
 
+
+class Comment(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  content = models.TextField(),
+  event = models.ForeignKey(Event, on_delete=models.CASCADE) 
+  
