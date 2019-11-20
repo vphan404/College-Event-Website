@@ -23,7 +23,7 @@ urlpatterns = [
   path('about/', 
     views.about, name='events-about'),
   
-  path('registered-student-organizations/', 
-    views.RSO, name='events-RSO')
+  # path('registered-student-organizations/', 
+  #   views.RSO, name='events-RSO')
 ]
 
