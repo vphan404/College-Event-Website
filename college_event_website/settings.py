@@ -35,6 +35,7 @@ AUTH_USER_MODEL = 'Users.User'
 INSTALLED_APPS = [
     'Events.apps.EventsConfig',
     'Home.apps.HomeConfig',
+    'Universities.apps.UniversitiesConfig',
     'Users.apps.UsersConfig',
     'Rso.apps.RsoConfig',
     'crispy_forms',

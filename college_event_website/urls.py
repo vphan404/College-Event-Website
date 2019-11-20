@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
+from django.urls import path, include, re_path
 from Users import views as user_views
 from django.conf import settings # For images
 from django.conf.urls.static import static # For images
@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('Home.urls')),
     path('register/', include('Users.urls')),
     path('profile/', user_views.profile, name='profile'),
+    re_path('profile/(?P<pk>\d+)/', user_views.profile, name='profile_with_pk'),
     path('edit_profile/', user_views.edit_profile, name='edit-profile'),
     path('rso/', include('Rso.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='Users/login.html'), name='login'),

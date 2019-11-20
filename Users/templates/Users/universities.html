@@ -1,0 +1,58 @@
+{% extends "Home/base.html" %}
+{% block content %}
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8">
+        <div class="content-section">
+            <div class="border-bottom pt-3">
+              <h2>My Universities</h2>
+            </div>
+
+            <div class="">
+                {% for university in myUniversityList %}
+                    <div class="row no-gutters">
+                        <div class="col-sm-9">
+                          <a href="{% url 'profile_with_pk' pk=friend.pk %}">
+                              <h4>{{ university.name }}</h4>
+                          </a>
+                        </div>
+
+                        <div class="col-sm-3 text-right">
+                          <a href="{% url 'update_universities' operation='remove' pk=friend.pk %}">
+                              Remove University
+                          </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="content-section">
+        <div class="border-bottom pt-3">
+            <h2>Other Universities</h2>
+            (Click University to add)
+        </div>
+
+        {% for university in universities %}
+            {% if not university in myUniversityList %}
+                <a href="{% url 'update_universities' operation='add' pk=user.pk %}">
+                    <h4>{{ university.name }}</h4>
+                </a>
+            {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</main>
+
+{% endblock content %}

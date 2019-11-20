@@ -14,7 +14,8 @@ from .forms import (
   ProfileUpdateForm
 )
 from .models import (
-  User
+  User,
+  UniversityList
 )
 
 # Create your views here.
@@ -111,3 +112,11 @@ class SuperAdminSignUpView(CreateView):
     login(self.request, user) 
     return redirect('events-home')
 
+
+def update_universities(request, operation, pk):
+  university = User.objects.get(pk=pk) 
+  if operation == 'add':
+    UniversityList.add_university(request.user, university) 
+  elif operation == 'remove':
+    UniversityList.remove_university(request.user, university) 
+  return redirect('universities')
