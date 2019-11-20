@@ -37,9 +37,10 @@ class Event(models.Model):
   id = models.AutoField(primary_key=True) 
   name = models.CharField(max_length = MAX_LENGTH_EVENT_NAME)
   description = models.TextField()
-  # eventDate = models.DateField()
+  date = models.DateField()
   datetime = models.DateTimeField()
-  # eventTime = models.TimeField()
+  startTime = models.TimeField()
+  endTime = models.TimeField()
   # eventLocation = ???
   # isPublic // or make wrapper class?
   # isPrivate

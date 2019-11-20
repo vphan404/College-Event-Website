@@ -87,10 +87,21 @@ class EventDetailView(DetailView):
 
 
 # Page for creating an event
-class EventCreateView(CreateView):
+# class EventCreateView(CreateView):
+#   model = Event
+#   fields = [
+#     'name', 
+#     'description',
+#     'datetime'
+#   ]
+
+def EventCreateView(request):
   model = Event
-  fields = [
-    'name', 
-    'description',
-    'datetime'
-  ]
+  form = CreateEventForm(request.POST or None, request.FILES or None)
+  if request.method == 'POST' and form.is_valid():
+    form.save() 
+  context = {
+    'form': form,
+    'page_title': 'Edit Event',
+  }
+  return render(request, 'events/event_form.html', context)
