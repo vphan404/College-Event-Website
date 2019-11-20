@@ -1,6 +1,6 @@
-{% extends "home/base.html" %}
+{% extends "Home/base.html" %}
 {% load crispy_forms_tags %}
-{% block main %}
+{% block content %}
   {% if messages %}
       {% for message in messages %}
           <div class="alert alert-{{ message.tags }}">
@@ -32,4 +32,4 @@
       </div>
     </div>
   </main>
-{% endblock main %}
+{% endblock content %}
