@@ -47,6 +47,7 @@ class UserSignUpView(CreateView):
   def form_valid(self, form):
     user = form.save()
     login(self.request, user) 
+    # messages.success(request, f'Your account has been created! Please log in.')
     return redirect('events-home')
 
 
