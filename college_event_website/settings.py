@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'Events.apps.EventsConfig',
     'Home.apps.HomeConfig',
-    'Users.apps.UsersConfig'
+    'Users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
