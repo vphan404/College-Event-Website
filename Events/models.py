@@ -1,7 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User 
+# from django.contrib.auth.models import User 
 from django.urls import reverse 
 from datetime import datetime, date, time
+from Users.models import User
 
 MAX_LENGTH_EVENT_NAME = 255
 DEFAULT_DATE = date(2000, 1, 1)

@@ -6,7 +6,7 @@ from .models import (
   User
 )
 
-class UserRegistrationForm(UserCreationForm):
+class UserSignUpForm(UserCreationForm):
   email = forms.EmailField() 
 
   class Meta:
@@ -18,6 +18,7 @@ class UserRegistrationForm(UserCreationForm):
       'password2'
     ]
 
+
 class AdminSignUpForm(UserCreationForm):
   class Meta(UserCreationForm.Meta):
     model = User
@@ -28,6 +29,7 @@ class AdminSignUpForm(UserCreationForm):
     user.is_admin = True 
     user.save()
     return user
+
 
 class SuperAdminSignUpForm(UserCreationForm):
   class Meta(UserCreationForm.Meta):

@@ -4,18 +4,23 @@
 
 python manage.py shell  // open python
 
+//from django.contrib.auth.models import User 
+
 from datetime import datetime, date, time
-from django.contrib.auth.models import User 
+from User.models import User
 from Events.models import Event
 
 user = User.objects.filter(username='admin').first()
 d = date(2019, 10, 30)
 t = time(12, 30)
+t2 = time(13, 30)
 dt = datetime.combine(d, t)
 event_1 = Event(
   name='My First Event', 
   description='Some description goes here', 
-  datetime=dt, 
+  date = d,
+  startTime = t,
+  endTime = t2,
   user=user
 )
 //event_1.save()
@@ -24,11 +29,14 @@ Event.objects.all()
 user = User.objects.filter(username='admin').first()
 d = date(2019, 10, 31)
 t = time(12, 30)
+t2 = time(13, 0)
 dt = datetime.combine(d, t)
 event_2 = Event(
   name='The Second Event', 
   description='Some more flavortext can go ahead and go here, why not', 
-  datetime=dt, 
+  date=d,
+  startTime = t,
+  endTime = t2,
   user=user
 )
 event_2.save()

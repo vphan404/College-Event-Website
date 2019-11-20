@@ -1,27 +1,19 @@
 from django.urls import path
 from .views import (
-  User
+  UserSignUpView,
+  AdminSignUpView,
+  SuperAdminSignUpView
 )
 from . import views   # '.' = current directory
 
 urlpatterns = [
   path('', 
-    
-    # views.home, name='events-home'),
-    EventListView.as_view(), name='events-home'),
+    UserSignUpView.as_view(), name='user-registration'),
 
-  # path('test/', 
-  #   EventListView.as_view(), name='event-list'),
-
-  path('create/',
-    # EventCreateView.as_view(), name='event-create'),
-    EventCreateView, name='event-create'),
+  path('admin/',
+    AdminSignUpView.as_view(), name='admin-registration'),
 
   path('event/<int:pk>/',
-    EventDetailView.as_view(), name='event-detail'),
-
-  
-  # path('registered-student-organizations/', 
-  #   views.RSO, name='events-RSO')
+    SuperAdminSignUpView.as_view(), name='super-admin-registration'),
 ]
 
