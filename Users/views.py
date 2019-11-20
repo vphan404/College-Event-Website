@@ -47,7 +47,7 @@ class UserSignUpView(CreateView):
   def form_valid(self, form):
     user = form.save()
     login(self.request, user) 
-    return redirect('events:events-home')
+    return redirect('events-home')
 
 
 class AdminSignUpView(CreateView):
@@ -62,7 +62,7 @@ class AdminSignUpView(CreateView):
   def form_valid(self, form):
     user = form.save()
     login(self.request, user) 
-    return redirect('events:events-home')
+    return redirect('events-home')
 
 
 class SuperAdminSignUpView(CreateView):
@@ -77,5 +77,5 @@ class SuperAdminSignUpView(CreateView):
   def form_valid(self, form):
     user = form.save()
     login(self.request, user) 
-    return redirect('events:events-home')
+    return redirect('events-home')
 

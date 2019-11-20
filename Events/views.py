@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
@@ -29,7 +29,7 @@ class EventListView(ListView):
   # This is the info passed into the html
   context_object_name = 'events'
 
-  # Orders in descending order by date (make the newest)
+  # Orders in descending order by date (make the newest first)
   ordering = ['-date']
 
 
@@ -60,8 +60,9 @@ def EventCreateView(request):
   form = CreateEventForm(request.POST or None, request.FILES or None)
   if request.method == 'POST' and form.is_valid():
     form.save() 
+    return redirect('events-home')
   context = {
     'form': form,
-    'page_title': 'Edit Event',
+    'page_title': 'Create Event',
   }
   return render(request, 'events/event_form.html', context)

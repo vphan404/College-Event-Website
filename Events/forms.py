@@ -21,6 +21,6 @@ class CreateEventForm(forms.ModelForm):
       'endTime': forms.TimeInput()
     }
     # name = forms.CharField(max_length=)
-    date = forms.DateField(
-      widget=forms.SelectDateWidget(years=[2001, 2002])
-    )
+    # date = forms.DateField(
+    #   widget=forms.SelectDateWidget(years=[2001, 2002])
+    # )
