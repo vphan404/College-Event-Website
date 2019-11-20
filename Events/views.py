@@ -94,7 +94,3 @@ class EventCreateView(CreateView):
     'description',
     'datetime'
   ]
-
-# About page.
-def about(request):
-  return render(request, 'events/about.html')
