@@ -89,7 +89,11 @@ class EventDetailView(DetailView):
 # Page for creating an event
 class EventCreateView(CreateView):
   model = Event
-
+  fields = [
+    'name', 
+    'description',
+    'datetime'
+  ]
 
 # About page.
 def about(request):
