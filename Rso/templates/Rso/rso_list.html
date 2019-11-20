@@ -1,0 +1,14 @@
+{% extends "Home/base.html" %}
+
+{% block content %} 
+  {% for event in events %}
+
+    <article class="media content-section">
+      <div class="media-body">
+        <h2><a class="article-title" href="{% url 'rso-detail' rso.id %}">{{ rso.name }}</a></h2>
+        <p class="article-content">{{ rso.description }}</p>
+      </div>
+    </article>
+
+  {% endfor %}
+{% endblock content %}

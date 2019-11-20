@@ -1,0 +1,15 @@
+{% extends "Home/base.html" %}
+
+{% block content %} 
+
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <small class="text-muted">{{ object.date }}</small>
+      </div>
+      <h2 class="article-title">{{ object.name }}</h2>
+      <p class="article-content">{{ object.description }}</p>
+    </div>
+  </article>
+
+{% endblock content %}
