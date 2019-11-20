@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'Events.apps.EventsConfig',
     'Home.apps.HomeConfig',
     'Users.apps.UsersConfig',
+    'Rso.apps.RsoConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
