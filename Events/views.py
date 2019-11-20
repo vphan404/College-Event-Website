@@ -70,7 +70,7 @@ class EventListView(ListView):
   context_object_name = 'events'
 
   # Orders in descending order by date (make the newest)
-  ordering = ['-datetime']
+  ordering = ['-date']
 
 
 # Page that displays the details for a given event

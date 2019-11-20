@@ -7,7 +7,7 @@
       <div class="media-body">
         <div class="article-metadata">
           <!-- <a class="mr-2" href="#">{{ post.author }}</a> -->
-          <small class="text-muted">{{ event.datetime|date:"F d, Y" }}</small>
+          <small class="text-muted">{{ event.date|date:"F d, Y" }}</small>
         </div>
         <h2><a class="article-title" href="{% url 'event-detail' event.id %}">{{ event.name }}</a></h2>
         <p class="article-content">{{ event.description }}</p>
