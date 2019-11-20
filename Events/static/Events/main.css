@@ -36,6 +36,10 @@ ul {
   font-weight: 500;
 }
 
+.navbar-dark .navbar-nav.show>.nav-link {
+  color: #f7d22d;
+}
+
 .content-section {
   background: #ffffff;
   padding: 10px 20px;
