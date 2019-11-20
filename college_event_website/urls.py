@@ -27,8 +27,10 @@ urlpatterns = [
     path('register/', include('Users.urls')),
     path('profile/', user_views.profile, name='profile'),
     re_path('profile/(?P<pk>\d+)/', user_views.profile, name='profile_with_pk'),
+    re_path(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/$',user_views.update_universities, name='update_universities'),
     path('edit_profile/', user_views.edit_profile, name='edit-profile'),
     path('rso/', include('Rso.urls')),
+    path('universities/', user_views.universities, name='universities'),
     path('login/', auth_views.LoginView.as_view(template_name='Users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='Users/logout.html'), name='logout'),
 ]

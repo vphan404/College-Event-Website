@@ -13,13 +13,13 @@
                 {% for university in myUniversityList %}
                     <div class="row no-gutters">
                         <div class="col-sm-9">
-                          <a href="{% url 'profile_with_pk' pk=friend.pk %}">
+                          <!-- Could add a link to the university's details page. in the future -->
                               <h4>{{ university.name }}</h4>
-                          </a>
+                          
                         </div>
 
                         <div class="col-sm-3 text-right">
-                          <a href="{% url 'update_universities' operation='remove' pk=friend.pk %}">
+                          <a href="{% url 'update_universities' operation='remove' pk=university.pk %}">
                               Remove University
                           </a>
                         </div>
@@ -44,7 +44,7 @@
 
         {% for university in universities %}
             {% if not university in myUniversityList %}
-                <a href="{% url 'update_universities' operation='add' pk=user.pk %}">
+                <a href="{% url 'update_universities' operation='add' pk=university.pk %}">
                     <h4>{{ university.name }}</h4>
                 </a>
             {% endif %}

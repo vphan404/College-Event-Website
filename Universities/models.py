@@ -22,3 +22,6 @@ class University(models.Model):
   name = models.CharField(max_length = MAX_LENGTH_UNIVERSITY_NAME)
   abbreviation = models.CharField(max_length = MAX_LENGTH_UNIVERSITY_ABBREVIATION)
   description = models.TextField()
+
+  def __str__(self): 
+    return f'{self.name}'
