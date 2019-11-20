@@ -2,7 +2,8 @@ from django import forms
 from django.db import transaction
 from django.contrib.auth.forms import UserCreationForm 
 from .models import ( 
-  User
+  User,
+  Profile
 )
 
 class UserSignUpForm(UserCreationForm):
@@ -42,3 +43,15 @@ class SuperAdminSignUpForm(UserCreationForm):
     user.is_admin = True 
     user.save()
     return user
+
+class UserUpdateForm(forms.ModelForm):
+  email = forms.EmailField()
+
+  class Meta:
+    model = User
+    fields = ['username', 'email']
+
+class ProfileUpdateForm(forms.ModelForm):
+  class Meta:
+    model = Profile
+    fields = ['image']

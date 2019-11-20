@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('Home.urls')),
     path('register/', include('Users.urls')),
     path('profile/', user_views.profile, name='profile'),
+    path('edit_profile/', user_views.edit_profile, name='edit-profile'),
     path('rso/', include('Rso.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='Users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='Users/logout.html'), name='logout'),
