@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
   RsoListView,
   RsoDetailView,
-  RsoCreateView
+  RsoCreateView,
+  RsoEditView
 )
 from . import views   # '.' = current directory
 
@@ -13,7 +14,8 @@ urlpatterns = [
     RsoDetailView.as_view(), name='rso-detail'),
   path('create/',
     RsoCreateView, name='rso-create'),
-
+path('edit/',
+    RsoEditView, name='rso-edit'),
   
 
 ]
