@@ -19,17 +19,6 @@ from .forms import (
 # Create your views here.
 
 
-# Homepage
-def home(request):
-
-  context = {
-    'posts': dummyPosts
-    # 'events': Event.objects.all()
-  }
-
-  return render(request, 'events/home.html', context)
-
-
 # Page that displays all the events
 class EventListView(ListView):
   model = Event
