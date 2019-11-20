@@ -94,6 +94,3 @@ class EventCreateView(CreateView):
 # About page.
 def about(request):
   return render(request, 'events/about.html')
-
-def RSO(request):
-  return render(request, 'events/RSO.html')
