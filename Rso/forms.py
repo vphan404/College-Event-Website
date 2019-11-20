@@ -13,3 +13,11 @@ class CreateRsoForm(forms.ModelForm):
       'description',
       'members'
     ]
+class EditRsoForm(forms.ModelForm):
+  class Meta:
+    model = Rso
+    fields = [
+      'name',
+      'description',
+      'members'
+    ]

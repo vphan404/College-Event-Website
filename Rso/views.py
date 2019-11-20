@@ -13,7 +13,8 @@ from .models import (
   Rso
 )
 from .forms import (
-  CreateRsoForm
+  CreateRsoForm,
+  EditRsoForm
 )
 
 # Create your views here.
@@ -50,6 +51,32 @@ def RsoCreateView(request):
   if request.method == 'POST' and form.is_valid():
     form.save()
     return redirect('rso-home')
+  context = {
+    'form': form,
+    'page_title': 'Edit Rso',
+  }
+  return render(request, 'rso/rso_form.html', context)
+
+def RsoCreateView(request):
+  model = Rso
+  form = CreateRsoForm(request.POST or None, request.FILES or None)
+  if request.method == 'POST' and form.is_valid():
+    form.save()
+    return redirect('rso-home')
+  context = {
+    'form': form,
+    'page_title': 'Create Rso',
+  }
+  return render(request, 'rso/rso_form.html', context)
+  
+def RsoEditView(request):
+  model = Rso
+  form = EditRsoForm(request.POST or None, request.FILES or None)
+  if request.method == 'POST' and form.is_valid():
+    form.save()
+    return redirect('rso-home')
+  else:
+    form = EditRsoForm(request.FILES)
   context = {
     'form': form,
     'page_title': 'Edit Rso',
