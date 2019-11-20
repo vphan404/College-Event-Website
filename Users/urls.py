@@ -1,13 +1,17 @@
 from django.urls import path
 from .views import (
+  ChooseSignUpView,
   UserSignUpView,
   AdminSignUpView,
   SuperAdminSignUpView
 )
 from . import views   # '.' = current directory
 
-urlpatterns = [
+urlpatterns = [ 
   path('', 
+    ChooseSignUpView.as_view(), name='register'),
+
+  path('user/', 
     UserSignUpView.as_view(), name='user-registration'),
 
   path('admin/',

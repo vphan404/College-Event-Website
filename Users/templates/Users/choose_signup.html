@@ -1,0 +1,25 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% block content %}
+
+<main role="main" class="container">
+	<div class="row">
+		<div class="col-md-12">
+      <div>
+        <h2>Sign up for a free account</h2>
+        <p>Select below the type of account you want to create.</p>
+        <a href="{% url 'user-registration' %}" class="btn btn-dark" role="button">I'm a student</a>
+        <a href="{% url 'admin-registration' %}" class="btn btn-dark" role="button">I'm an admin</a>
+        <a href="{% url 'super-admin-registration' %}" class="btn btn-dark" role="button">I'm a super-admin</a>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

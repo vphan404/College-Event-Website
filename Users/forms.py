@@ -19,6 +19,7 @@ class UserSignUpForm(UserCreationForm):
 
 
 class AdminSignUpForm(UserCreationForm):
+  email = forms.EmailField() 
   class Meta(UserCreationForm.Meta):
     model = User
   
@@ -31,6 +32,7 @@ class AdminSignUpForm(UserCreationForm):
 
 
 class SuperAdminSignUpForm(UserCreationForm):
+  email = forms.EmailField() 
   class Meta(UserCreationForm.Meta):
     model = User
   

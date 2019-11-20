@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.views.generic import (
-  CreateView
+  CreateView,
+  TemplateView
 )
 from django.contrib import messages
 from .forms import (
@@ -28,6 +29,10 @@ from .models import (
 #       'form': form,
 #     }
 #     return render(request, 'Users/register.html', context)
+
+class ChooseSignUpView(TemplateView):
+  template_name = 'users/choose_signup.html'
+
 
 class UserSignUpView(CreateView):
   model = User 
