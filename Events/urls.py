@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
   EventListView,
   EventDetailView,
-  EventCreateView
+  EventCreateView,
+  CommentCreateView,
 )
 from . import views   # '.' = current directory
 
@@ -21,6 +22,8 @@ urlpatterns = [
   path('event/<int:pk>/',
     EventDetailView.as_view(), name='event-detail'),
 
+  path('createcomment',
+    CommentCreateView, name='comment-create')
   
   # path('registered-student-organizations/', 
   #   views.RSO, name='events-RSO')

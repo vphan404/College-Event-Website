@@ -14,7 +14,8 @@ from .models import (
   Comment
 )
 from .forms import (
-  CreateEventForm
+  CreateEventForm,
+  CreateCommentForm
 )
 
 # Create your views here.
@@ -68,3 +69,15 @@ def EventCreateView(request):
     'page_title': 'Create Event',
   }
   return render(request, 'events/event_form.html', context)
+
+def CommentCreateView(request):
+  model = Comment
+  form = CreateCommentForm(request.POST or None, request.FILES or None) 
+  if request.method == 'POST' and form.is_valid():
+    form.save()
+    return redirect('events-home') 
+  context = {
+    'form': form,
+    'page_title': 'Create Comment' 
+  }
+  return render(request, 'events/comment_form.html', context)

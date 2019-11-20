@@ -33,6 +33,7 @@ def defaultEvent():
 
   if default is None:
     default = Event(
+      id = 1,
       name = 'First Event of Defaultness',
       description = 'A default event, filled to the brim with default-ness.',
       date = date(2015, 1, 1),
@@ -42,7 +43,7 @@ def defaultEvent():
     default.save()
   
   # Returns the primary key, not the event itself
-  return default.eventId
+  return default.id
 
 def defaultLocation():
   default = '28.6024, -81.2001' # UCF
@@ -110,9 +111,9 @@ class Event(models.Model):
 
 
 class Comment(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, default=defaultUser)
   content = models.TextField(default='Type your comment here!')
-  event = models.ForeignKey(Event, on_delete=models.CASCADE) 
+  event = models.ForeignKey(Event, on_delete=models.CASCADE, default=defaultEvent) 
 
   def save_model(self, request, obj, form, change):
     if obj.user == defaultUser: 

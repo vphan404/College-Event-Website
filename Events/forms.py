@@ -2,7 +2,8 @@ from django import forms
 from django.forms import TimeInput, DateInput
 from address.forms import AddressField
 from .models import (
-  Event
+  Event,
+  Comment
 )
 
 # What should be listed on a create event form
@@ -30,3 +31,12 @@ class CreateEventForm(forms.ModelForm):
     # date = forms.DateField(
     #   widget=forms.SelectDateWidget(years=[2001, 2002])
     # )
+
+
+class CreateCommentForm(forms.ModelForm):
+  class Meta:
+    model = Comment 
+    fields = [
+      'event',
+      'content'
+    ]
