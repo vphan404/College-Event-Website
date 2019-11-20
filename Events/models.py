@@ -1,9 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User 
 from django.urls import reverse 
-from datetime import datetime
+from datetime import datetime, date, time
 
 MAX_LENGTH_EVENT_NAME = 255
+DEFAULT_DATE = date(2000, 1, 1)
+DEFAULT_START_TIME = time(12, 0)
+DEFAULT_END_TIME = time(13, 0)
 # MAX_LENGTH_EVENT_DESCRIPTION = 5000
 
 
@@ -20,10 +23,11 @@ def defaultEvent():
 
   if default is None:
     default = Event(
-      eventName = 'First Event of Defaultness',
-      eventDescription = 'A default event, filled to the brim with default-ness.',
-      # eventDate = 
-      # eventDatetime = 
+      name = 'First Event of Defaultness',
+      description = 'A default event, filled to the brim with default-ness.',
+      date = date(2015, 1, 1),
+      startTime = time(12, 30),
+      endTime = time(13, 30)
     )
     default.save()
   
@@ -37,10 +41,10 @@ class Event(models.Model):
   id = models.AutoField(primary_key=True) 
   name = models.CharField(max_length = MAX_LENGTH_EVENT_NAME)
   description = models.TextField()
-  date = models.DateField()
+  date = models.DateField(default=DEFAULT_DATE)
   datetime = models.DateTimeField()
-  startTime = models.TimeField()
-  endTime = models.TimeField()
+  startTime = models.TimeField(default=DEFAULT_START_TIME)
+  endTime = models.TimeField(default=DEFAULT_END_TIME)
   # eventLocation = ???
   # isPublic // or make wrapper class?
   # isPrivate
