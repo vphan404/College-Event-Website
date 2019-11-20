@@ -2,6 +2,10 @@
 # Don't run just yet
 
 
+pip install Pillow
+pip install django-location-field
+
+
 python manage.py shell  // open python
 
 //from django.contrib.auth.models import User 

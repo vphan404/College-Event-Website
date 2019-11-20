@@ -13,7 +13,8 @@ class CreateEventForm(forms.ModelForm):
       'description',
       'date',
       'startTime',
-      'endTime'
+      'endTime',
+      'location'
     ]
     widgets = {
       'date': forms.SelectDateWidget(),

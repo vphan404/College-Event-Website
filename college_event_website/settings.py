@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'Users.apps.UsersConfig',
     'Rso.apps.RsoConfig',
     'crispy_forms',
+    'location_field.apps.DefaultConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
