@@ -17,6 +17,9 @@ urlpatterns = [
     EventDetailView.as_view(), name='event-detail'),
 
   path('about/', 
-    views.about, name='events-about')
+    views.about, name='events-about'),
+  
+  path('registered-student-organizations/', 
+    views.RSO, name='events-RSO')
 ]
 

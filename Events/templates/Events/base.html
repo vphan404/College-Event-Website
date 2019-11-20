@@ -31,10 +31,11 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'events-home' %}">Home</a>  <!-- Useful: reference to a url with this tag! -->
               <a class="nav-item nav-link" href="{% url 'events-about' %}">About</a>
+              <a class="nav-item nav-link" href="{% url 'events-RSO' %}">Registered Student Organizations</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
+              <a class="nav-item nav-link" href={% url 'admin:index' %}#">Login</a>
               <a class="nav-item nav-link" href="#">Register</a>
             </div>
           </div>
