@@ -14,4 +14,19 @@
     </div>
   </article>
 
+  <h2> Comments: </h2>
+  {% for comment in comments %}
+    
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <h4>{{ comment.user.username }}</h4>
+            <small class="text-muted">{{ comment.date }}</small>
+          </div>
+          <p class="article-content">{{ comment.content }}</p>
+        </div>
+      </article>
+    
+  {% endfor %}
+
 {% endblock content %}

@@ -111,6 +111,12 @@ class Event(models.Model):
 
 class Comment(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
-  content = models.TextField(),
+  content = models.TextField(default='Type your comment here!')
   event = models.ForeignKey(Event, on_delete=models.CASCADE) 
+
+  def save_model(self, request, obj, form, change):
+    if obj.user == defaultUser: 
+      obj.user = request.user 
   
+  def __str__(self):
+    return f'{self.event.name} {self.user.username}'
