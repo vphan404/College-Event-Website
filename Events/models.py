@@ -6,7 +6,9 @@ from datetime import datetime, date, time
 # from django.contrib.gis.db import models
 # from django.contrib.gis.geos import Point
 # from location_field.models.spatial import LocationField # For the location widget
-from location_field.models.plain import PlainLocationField
+# from location_field.models.plain import PlainLocationField
+
+from address.models import AddressField, Address
 
 from Users.models import User
 
@@ -41,15 +43,32 @@ def defaultEvent():
   # Returns the primary key, not the event itself
   return default.eventId
 
-def defaultLocation():
-  default = '28.6024, -81.2001' # UCF
-  return default
-
-# def defaultAddress():
-#   default = {
-#     'raw': '4000 Central Florida Blvd, Orlando, FL 32816'
-#   }
+# def defaultLocation():
+#   default = '28.6024, -81.2001' # UCF
 #   return default
+
+def defaultAddress():
+  rawText = '4000 Central Florida Blvd, Orlando, FL 32816'
+  default = Address.objects.first() 
+
+  if default is None:
+    default = Address.objects.create(
+      raw = '4000 Central Florida Blvd, Orlando, FL 32816'
+    )
+  # dictionary = {
+  #   'raw':rawText
+  # }
+  # default = Address(
+  #   dictionary
+  # )
+  # default = Address( 
+  #   'defaultAddress',
+  #   raw='4000 Central Florida Blvd, Orlando, FL 32816',
+  #   street_number=4000,
+  # )
+  # default = Address(rawText)
+  # default = '4000 Central Florida Blvd, Orlando, FL 32816'
+  return default
 
 
 class Event(models.Model):
@@ -59,8 +78,8 @@ class Event(models.Model):
   date = models.DateField(default=DEFAULT_DATE)
   startTime = models.TimeField(default=DEFAULT_START_TIME)
   endTime = models.TimeField(default=DEFAULT_END_TIME)
-  location = PlainLocationField(based_fields=['city'], zoom=7, default=defaultLocation())
-  # address = AddressField(default=defaultAddress())
+  # location = PlainLocationField(based_fields=['city'], zoom=7, default=defaultLocation())
+  address = AddressField(null=True, on_delete=models.CASCADE)
   # isPublic // or make wrapper class?
   # isPrivate
   # isRSO

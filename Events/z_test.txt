@@ -4,6 +4,7 @@
 
 pip install Pillow
 pip install django-location-field
+pip install django-address
 
 
 python manage.py shell  // open python
