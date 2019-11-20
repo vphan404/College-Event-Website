@@ -42,7 +42,7 @@ class Event(models.Model):
   name = models.CharField(max_length = MAX_LENGTH_EVENT_NAME)
   description = models.TextField()
   date = models.DateField(default=DEFAULT_DATE)
-  datetime = models.DateTimeField()
+  # datetime = models.DateTimeField()
   startTime = models.TimeField(default=DEFAULT_START_TIME)
   endTime = models.TimeField(default=DEFAULT_END_TIME)
   # eventLocation = ???
