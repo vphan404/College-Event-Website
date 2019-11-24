@@ -1,0 +1,33 @@
+{% extends "Home/base.html" %}
+
+{% block content %} 
+
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <!-- <a class="mr-2" href="#">{{ post.author }}</a> -->
+        <small class="text-muted">{{ object.date }}</small>
+      </div>
+      <h2 class="article-title">{{ object.name }}</h2>
+      <h5 class="article-heading">{{ object.date }}</h5>
+      <p class="article-content">{{ object.description }}</p>
+    </div>
+  </article>
+
+  <h2> Comments: </h2>
+  {% for comment in comments %}
+    {% if comment.event == object %}
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <h4>{{ comment.user.username }}</h4>
+            <small class="text-muted">{{ comment.date }}</small>
+          </div>
+          <p class="article-content">{{ comment.content }}</p>
+        </div>
+      </article>
+    {% endif %}
+  {% endfor %}
+
+  <a class="mr-2" href="{% url 'comment-create' %}" class="btn btn-dark" role="button">Add a comment</a>
+{% endblock content %}

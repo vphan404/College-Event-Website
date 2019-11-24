@@ -1,0 +1,27 @@
+{% extends "Home/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+  {{ form.media }} <!-- Needed for JS/GoogleMaps Lookup -->
+  <div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Event Manager</legend>
+            {{ form|crispy }}
+        </fieldset>
+
+        <!-- Outdated, now that the ability score class is merged with character
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Ability Scores</legend>
+            {{ form2|crispy }}
+        </fieldset>
+        -->
+
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Save</button>
+        </div>
+    </form>
+  </div>
+{% endblock content %}

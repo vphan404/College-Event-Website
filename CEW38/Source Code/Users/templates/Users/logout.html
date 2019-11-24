@@ -1,0 +1,15 @@
+{% extends "Home/base.html" %}
+{% block content %}
+<main role="main" class="container">
+	<div class="row">
+		<div class="col-md-12">
+      <h2>You have been Logged out</h2>
+      <div class="border-top pt-3">
+          <small class="text-muted">
+              <a class="btn btn-dark" href="{% url 'login' %}" role="button">Log back in</a>
+          </small>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

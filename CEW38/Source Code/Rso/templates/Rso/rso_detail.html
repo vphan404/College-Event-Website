@@ -1,0 +1,20 @@
+{% extends "Home/base.html" %}
+
+{% block content %} 
+
+  <article class="media content-section">
+    <div class="media-body">
+      <h2 class="article-title">{{ object.name }}</h2>
+      <h4>Description:</h4>
+        <p class="article-content">{{ object.description }}</p>
+      <h4>Members:</h4>
+      <ul>
+        {% for member in object.members.all %}
+        <li class="article-content">{{ member }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'rso-edit'%}">Edit</a>
+  </article>
+
+{% endblock content %}
