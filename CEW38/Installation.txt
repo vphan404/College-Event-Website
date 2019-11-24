@@ -1,0 +1,14 @@
+Download Python
+https://www.python.org/downloads/
+
+Use the Python package manager to install packagaes required for project using terminal
+pip install django
+pip install Pillow
+pip install django-location-field
+pip install django-address
+
+Run the server using this command
+python manage.py runserver
+
+Using your preferred browser navigate to this link to access website locally
+http://localhost:8000/
